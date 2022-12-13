@@ -1,0 +1,7 @@
+{
+    "name": "Ruby KANA",
+    "manifest_version": 3,
+    "version": "0.1",
+    "permissions": ["activeTab","scription"]
+    
+}

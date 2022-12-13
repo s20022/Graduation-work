@@ -51,24 +51,38 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
 
   }
 
-  let div_element = document.createElement('div');
-  let ruby_element = document.createElement('ruby');
-  ruby_element.textContent = kanzihairetu[0];
-  let rp_eletment = document.createElement('rp');
-  rp_eletment.textContent = '(';
-  let rt_element = document.createElement('rt');
-  rt_element.textContent = convertedArray[0];
-  let rp_eletment2 = document.createElement('rp');
-  rp_eletment2.textContent = ')';
 
-  let ElementArticle = document.getElementById('ElementArticle');
+  const article = document.querySelector('article')
 
-  ElementArticle.appendChild(div_element);
-  div_element.appendChild(ruby_element);
-  ruby_element.appendChild(rp_eletment);
-  ruby_element.appendChild(rt_element);
-  ruby_element.appendChild(rp_eletment2);
+  
+  console.log(kanzihairetu)
+  console.log(convertedArray)
+  for(let i = 0; i < kanzihairetu.length; i++){
+    if(kanzihairetu[i].match(Kanzi)){
+      const rubyhtml  = `
+      <ruby>
+      <rb>${kanzihairetu[i]}</rb>
+      <rp>(</rp>
+      <rt>${convertedArray[i]}</rt>
+      <rp>)</rp>
+      </ruby>
+      `
 
+      article.insertAdjacentHTML("afterbegin", rubyhtml)
+    }
+    else{
+      const texthtml  = `
+
+      <p>${convertedArray[i]}</p>
+      
+      `
+
+      article.insertAdjacentHTML("afterbegin",texthtml)
+      
+
+
+    }
+  }
 } 
 
 //要素分割する関数

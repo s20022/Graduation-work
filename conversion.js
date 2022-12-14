@@ -53,6 +53,7 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
 
 
   const article = document.querySelector('article')
+  
 
   
   console.log(kanzihairetu)
@@ -61,23 +62,23 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
     if(kanzihairetu[i].match(Kanzi)){
       const rubyhtml  = `
       <ruby>
-      <rb>${kanzihairetu[i]}</rb>
+      <rb class="ElementText">${kanzihairetu[i]}</rb>
       <rp>(</rp>
       <rt>${convertedArray[i]}</rt>
       <rp>)</rp>
       </ruby>
       `
 
-      article.insertAdjacentHTML("afterbegin", rubyhtml)
+      article.insertAdjacentHTML("beforeend", rubyhtml)
     }
     else{
       const texthtml  = `
 
-      <p>${convertedArray[i]}</p>
+      <p class="ElementText">${convertedArray[i]}</p>
       
       `
 
-      article.insertAdjacentHTML("afterbegin",texthtml)
+      article.insertAdjacentHTML("beforeend",texthtml)
       
 
 
@@ -150,7 +151,11 @@ function butotnClick(){
 }
 
 function removeElement(){
-  document.getElementById('targetText').value = ''
+  let rubyElement = document.querySelector('ruby');
+  let textElement = document.querySelector('p')
+  rubyElement.remove();
+  textElement.remove();
+  
 }
 
 //変換ボタン要素取得

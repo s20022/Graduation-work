@@ -15,8 +15,10 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
 
   //let KanziJD = /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
   let Kanzi = /^[\p{scx=Han}]+$/u;
+  let checkHiragana = /^[\p{scx=Hiragana}]+$/u;
+  let Katakana = /^[\p{scx=Katakana}]+$/u;
 
-  console.log(hiraganahairetu)
+  //console.log(hiraganahairetu)
 
   for(let i = 0; i < hiraganahairetu.length; i++){
     if(hiraganahairetu[i].match(Kanzi)){
@@ -56,8 +58,8 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
   
 
   
-  console.log(kanzihairetu)
-  console.log(convertedArray)
+  //console.log(kanzihairetu)
+  //console.log(convertedArray)
   for(let i = 0; i < kanzihairetu.length; i++){
     if(kanzihairetu[i].match(Kanzi)){
       const rubyhtml  = `
@@ -112,6 +114,7 @@ async function elementDecomposition(kanziSentence){
   try {
     const res = await axios(options);
     SplitText = res.data.word_list;
+    //console.log(SplitText)
   } catch (e) {
     if (e.response) {
       const {response: {data, status, headers}} = e;
@@ -123,15 +126,30 @@ async function elementDecomposition(kanziSentence){
     }
   }
 
+  //多次元配列の数
+  console.log(SplitText)
+  if (SplitText.length <= 1) {
+    for(let i = 0; i < SplitText[0,0].length; i++) {
+      convArray.push(SplitText[0,0][0,i][0,0])
+    }
+  }
+  else{
+    let SplitedText = [];
+    SplitText.forEach((element) => {
+      SplitedText = SplitedText.concat(element)
+      console.log(SplitedText)
+    });
 
-
-  for(let i = 0; i < SplitText[0,0].length; i++) {
-
-    convArray.push(SplitText[0,0][0,i][0,0])
+    SplitedText.forEach((element) => {
+      convArray = convArray.concat(element)
+    })
 
   }
 
   let CopyConvArray = convArray.concat()
+
+  //console.log(convArray)
+  //console.log(CopyConvArray)
 
   //console.log(SplitText)
   //console.log(convArray)

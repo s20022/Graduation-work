@@ -3,7 +3,7 @@
 }
 
 
-h1{
+h4{
   position: relative;
   display: inline-block;
   padding: 1rem 2rem 1rem 4rem;
@@ -13,7 +13,7 @@ h1{
   
 }
 
-h1:before {
+h4:before{
     position: absolute;
     top: calc(50% - 7px);
     left: 10px;

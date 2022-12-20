@@ -1,5 +1,4 @@
-"use strict";
-
+import axios from "axios";
 const APIKEY = '892d5fb2f49d1c2a55ef52772ad2baa9779f506b54b81050e597bd5039b2d252';
 const HIRAGANA_URL = 'https://labs.goo.ne.jp/api/hiragana';
 const Decomposition_URL = 'https://labs.goo.ne.jp/api/morph'
@@ -63,7 +62,7 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
   for(let i = 0; i < kanzihairetu.length; i++){
     if(kanzihairetu[i].match(Kanzi)){
       const rubyhtml  = `
-      <ruby>
+      <ruby class = "RubyElementText">
       <rb class="ElementText">${kanzihairetu[i]}</rb>
       <rp>(</rp>
       <rt>${convertedArray[i]}</rt>
@@ -75,8 +74,9 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
     }
     else{
       const texthtml  = `
-
+      <div class = "ElementText">
       <p class="ElementText">${convertedArray[i]}</p>
+      </div>
       
       `
 
@@ -86,6 +86,7 @@ async function conversionKANA(kanzihairetu,hiraganahairetu) {
 
     }
   }
+  console.log(article)
 } 
 
 //要素分割する関数
@@ -169,11 +170,8 @@ function butotnClick(){
 }
 
 function removeElement(){
-  let rubyElement = document.querySelector('ruby');
-  let textElement = document.querySelector('p')
-  rubyElement.remove();
-  textElement.remove();
-  
+  const AllElement = document.getElementById('article')
+  AllElement.empty()
 }
 
 //変換ボタン要素取得
@@ -181,3 +179,7 @@ let checkButton = document.getElementById('checkButton');
 
 //変換ボタンの判定
 checkButton.addEventListener('click', butotnClick);
+
+let removeButton = document.getElementById('removeButton');
+
+removeButton.addEventListener('click',removeElement)

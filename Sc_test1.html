@@ -7,22 +7,21 @@
 
 </head>
 <body>
-    <p>
-        <h1>入力されたテキストにルビをふります</h1>
-        <textarea id = "targetText" value = "test" cols = "50" rows="5" wrap="soft"></textarea>
+    <h4>入力されたテキストにルビをふります</h4>
+
+    <textarea id = "targetText" value = "test" cols = "50" rows="5" wrap="soft"></textarea>
        
-        <input type="button" value="変換" id="checkButton">
-        <!-- <a class="checkButton"><span>変換</span></a>-->
-        <input type="button" value="削除" id="removeBUtton">
-    </p>
+    <input type="button" value="変換" id="checkButton">
+
+    <input type="button" value="削除" id="removeButton">
+    
     <p id="msg"></p>
     <p id="msg_kanzi"></p>
 
     <article id = 'ElementArticle'>
-       
     </article>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
     <script src="conversion.js"></script>
 
 </body>

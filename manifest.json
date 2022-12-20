@@ -1,7 +1,15 @@
 {
-    "name": "Ruby KANA",
+    "name": "KRCE",
     "manifest_version": 3,
-    "version": "0.1",
-    "permissions": ["activeTab","scription"]
+    "description" : "Google拡張機能。ルビ振ってくれる",
+    "version": "1.0",
+    "action":{
+        "default_icon":{
+            "48":"images/KANA48.png",
+            "128":"images/KANA128.png"
+        },
+        "default_popup": "Sc_test1.html"
+
+    }
     
 }

@@ -1,3 +1,35 @@
 .ElementText {
     display: inline-block;
 }
+
+
+h1{
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem 1rem 4rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background: #fa4141;
+  
+}
+
+h1:before {
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 10px;
+    width: 14px;
+    height: 14px;
+    content: '';
+    border-radius: 50%;
+    background: #fff;
+  }
+
+#targetText{
+    width: 300px;
+    height: 75px;
+    border: solid 1px #000;
+    resize: none;
+    display: flex;
+    flex-flow: column;
+}
+

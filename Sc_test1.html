@@ -2,16 +2,17 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>課題研究 テスト</title>
+<title>KRCE</title>
 <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 <body>
     <p>
-        <p>文章にルビを振って返すよ！！</p>
-        <input type="text" value = "" id="targetText">
+        <h1>入力されたテキストにルビをふります</h1>
+        <textarea id = "targetText" value = "test" cols = "50" rows="5" wrap="soft"></textarea>
        
         <input type="button" value="変換" id="checkButton">
+        <!-- <a class="checkButton"><span>変換</span></a>-->
         <input type="button" value="削除" id="removeBUtton">
     </p>
     <p id="msg"></p>

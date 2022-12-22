@@ -162,7 +162,7 @@ function butotnClick(){
 }
 
 //変換ボタン要素取得
-let checkButton = document.getElementById('checkButton');
+let checkButton = document.querySelector('#checkButton');
 
 //変換ボタンの判定
 checkButton.addEventListener('click', butotnClick);

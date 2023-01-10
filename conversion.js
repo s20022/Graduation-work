@@ -1,5 +1,5 @@
 
-const APIKEY = '892d5fb2f49d1c2a55ef52772ad2baa9779f506b54b81050e597bd5039b2d252';
+const APIKEY = '自身のAPIキー';
 const HIRAGANA_URL = 'https://labs.goo.ne.jp/api/hiragana';
 const Decomposition_URL = 'https://labs.goo.ne.jp/api/morph'
 let Kanzi = /^[\p{scx=Han}]+$/u;
